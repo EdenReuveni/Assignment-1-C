@@ -3,10 +3,10 @@ all: mymathd mymaths mains maind
 mymathd:libmyMath.so
 mymaths:libmyMath.a
 
-mains: main.o mymaths
+mains: main.o libmyMath.a
 	gcc -Wall -g -o mains main.o libmyMath.a
 
-maind: main.o mymathd
+maind: main.o libmyMath.so
 	gcc -Wall -g -o maind main.o ./libmyMath.so
 	
 libmyMath.a: power.o basicMath.o
